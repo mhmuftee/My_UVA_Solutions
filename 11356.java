@@ -1,6 +1,9 @@
-import java.util.*;
-
-public class A
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+public class Main
 {
 
     public static void main(String[] args)
@@ -11,19 +14,19 @@ public class A
         int caseNumber = inputStream.nextInt();
         int addValue,day = 0,month,year = 0;
 
-        String date="",mont="";
+        String sDate="",sMonth="";
 
         for( int I = 1; I<=caseNumber*2; I++)
         {
             if(inputStream.hasNextLine())
             {
-                date = inputStream.nextLine();
-                Scanner dateFixer = new Scanner(date);
+                sDate = inputStream.nextLine();
+                Scanner dateFixer = new Scanner(sDate);
                 dateFixer.useDelimiter("-");
                 if(dateFixer.hasNextInt())
                     year = dateFixer.nextInt();
                 if(dateFixer.hasNext())
-                    mont = dateFixer.next();
+                    sMonth = dateFixer.next();
                 if(dateFixer.hasNextInt())
                     day = dateFixer.nextInt();
             }
@@ -31,17 +34,15 @@ public class A
             {
                 addValue = inputStream.nextInt();
 
-                GregorianCalendar myCalendar = new GregorianCalendar(year,monthIndex(mont),day);
+                GregorianCalendar myCalendar = new GregorianCalendar(year,monthIndex(sMonth),day);
                 myCalendar.add(Calendar.DATE,addValue);
 
-    System.out.print("Case " + I/2 + ": ");
-    System.out.print(myCalendar.get(Calendar.YEAR) + "-" + getMonth(myCalendar.get(Calendar.MONTH)) + "-");
-    Formatter ft = new Formatter();
-    int iDay = myCalendar.get(Calendar.DATE);
-    ft.format("%02d",iDay);
-    System.out.println(ft);
-    ft.close();
-                //System.out.println(date + " " + addValue + " " + year + " " + monthIndex(mont) + " " + day );
+                Date date = myCalendar.getTime();
+
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MMMM-dd");
+
+    System.out.println("Case " + I/2 + ": " + ft.format(date));
+
             }
         }
 
@@ -79,40 +80,5 @@ public class A
         }
         return -1;
     }
-
-    static String getMonth(int monthIndex)
-    {
-        switch(monthIndex)
-        {
-        case 0:
-            return "January";
-        case 1:
-            return "February";
-        case 2:
-            return "March";
-        case 3:
-            return"April";
-        case 4:
-            return "May";
-        case 5:
-            return "June";
-        case 6:
-            return "July";
-        case 7:
-            return "August";
-        case 8:
-            return "September";
-        case 9:
-            return"October";
-        case 10:
-            return "November";
-        case 11:
-            return "December";
-        }
-        return null;
-    }
-
-
-
 
 }
