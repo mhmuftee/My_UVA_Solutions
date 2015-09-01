@@ -3,21 +3,19 @@ import java.util.GregorianCalendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
-public class Main
-{
 
-    public static void main(String[] args)
-    {
+public class Main{
 
-        Scanner inputStream = new Scanner(System.in);
+  public static void main(String[] args){
 
-        int caseNumber = inputStream.nextInt();
-        int addValue,day = 0,month,year = 0;
+    Scanner inputStream = new Scanner(System.in);
 
-        String sDate="",sMonth="";
+    int caseNumber = inputStream.nextInt();
+    int addValue,day = 0,month,year = 0;
 
-        for( int I = 1; I<=caseNumber*2; I++)
-        {
+    String sDate="",sMonth="";
+
+    for( int I = 1; I<=caseNumber*2; I++){
             if(inputStream.hasNextLine())
             {
                 sDate = inputStream.nextLine();
