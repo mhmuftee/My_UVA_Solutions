@@ -3,15 +3,17 @@ import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Date;
+
 class Main{
 
   public static void main(String args[]){
-    
+
     Scanner input = new Scanner(System.in);
 
     int kase = input.nextInt();
+
     String sDate = "";
-    
+
 
     for(int I=1; I<=kase; I++){
       if(input.hasNext())
@@ -24,25 +26,24 @@ class Main{
       Integer month = new Integer(sDay);
       Integer day = new Integer(sMonth);
       Integer year = new Integer(sYear);
-      
-      System.out.println(day + " " + month + " " + year);
 
       GregorianCalendar myCalendar = new GregorianCalendar(year,month-1,day);
 
       myCalendar.add(Calendar.DATE,280);
 
       SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+
       System.out.println(I + " " + ft.format(myCalendar.getTime()) + " " + printMonth(myCalendar));
-       
+
     }
 
   }
 
 
   static String printMonth(GregorianCalendar myCalendar){
-    
+
     String s = "" ;
-   
+
     SimpleDateFormat ft = new SimpleDateFormat("MMdd");
     String sDate = ft.format(myCalendar.getTime());
 
