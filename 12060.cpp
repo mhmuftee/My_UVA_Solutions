@@ -19,6 +19,9 @@ int main(){
   int kase,number;
   bool minus;
 
+ // freopen("in.txt","r",stdin);  
+  //freopen("out.txt","w",stdout);
+
   int I = 1;  
 
   while(scanf("%d",&kase)==1 && kase){
@@ -33,13 +36,18 @@ int main(){
 
     avg/=kase;
 
+    printf("%.18lf\n",avg);
+
    if(avg<0) {avg*=-1;minus = 1;}
 
     double continued = avg;
 
     long a = (long)avg, b = 0, c = 0;
 
+
     avg-=a;
+
+    printf("%lf\n",1/avg);
 
     b+=avg*1000000;
 
@@ -51,13 +59,14 @@ int main(){
       b/=Gcd;
       c/=Gcd;
     }
+    printf("%ld %ld %ld\n",b,c,Gcd);
 
     if(Gcd==1){
       continued = avg*10-avg;
 
       long d = (long)continued;
        
-      printf("%ld\n",d);      
+      //printf("%ld\n",d);      
       
       long g = gcd(d,9);
       b=d/g;
@@ -72,21 +81,33 @@ int main(){
     printf("Case %d:\n",I);
 
     if(b){
-      if(minus)
-        printf("%3ld\n",b);
-      else 
-        printf("%2ld\n",b);
 
-    if(minus)
-      printf("-");
-        
-        
-    printf("%ld-\n",a);
+      char check[50];
 
-    if(minus)
-      printf("%3ld\n",c);
-    else 
-      printf("%2ld\n",c);
+      sprintf(check,"%ld",c);
+
+      int numberOf_ = strlen(check);
+      int len = 0;
+      if(a){
+      sprintf(check,"%ld",a);
+      len += strlen(check);
+      }
+      len+=numberOf_;
+
+      //printf("%d\n",len);
+
+    if(minus){
+      
+      len+=2;
+    }    
+    
+      std::cout.width(len); std::cout << std::right << b << '\n';
+      if(minus)printf("- ");
+      if(a)printf("%ld",a);
+      for(int i=0;i<numberOf_;i++) printf("-");
+      printf("\n");
+      std::cout.width(len); std::cout << std::right << c << '\n';      
+ 
    
     }
     else {
