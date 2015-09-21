@@ -6,7 +6,6 @@ using namespace std;
 
 unsigned long long int stored_summation[MAX+10];
 
-
 int main(){
 
   stored_summation[1] = 1; 
