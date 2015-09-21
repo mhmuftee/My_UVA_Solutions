@@ -25,4 +25,6 @@ int main(){
 
         printf("%d\n",m*2);
     }
-    return 0;}
+    return 0;
+    
+}
