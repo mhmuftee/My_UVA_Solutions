@@ -4,9 +4,9 @@ public class Main{
     Scanner in = new Scanner(System.in);
     while(in.hasNext()){
       Integer decimalNumber = in.nextInt();
-      if(decimalNumber.equals(-1)) break;
+      if(decimalNumber<0) break;
       else
-      System.out.println(decimalNumber.toString(decimalNumber,3));
+      System.out.println(Integer.toString(decimalNumber,3));
     }
   }
 }
