@@ -2,22 +2,12 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;	
+import java.math.MathContext;
+import java.math.BigInteger;
 
 public class Main2{
   public static void main(String[] args){
-    /*
-    File inp = new File("/Users/Muftee/Documents/input.txt");
-    PrintWriter writer = null;
-    try { 
-      writer = new PrintWriter("/Users/Muftee/Documents/output.txt", "UTF-8");  
-    } catch (Exception e) {
-    } */   
-    Scanner in = new Scanner(System.in);
-    /*
-    try{
-      in = new Scanner(inp);
-    } catch (Exception e){
-    }*/
+      Scanner in = new Scanner(System.in);
     int kase = 0;
     if(in.hasNextInt())
        kase = in.nextInt();
@@ -25,8 +15,8 @@ public class Main2{
        try{
        String aa = in.next();
        String bb = in.next();
-       BigDecimal a;// = in.nextBigDecimal();
-       BigDecimal b; //= in.nextBigDecimal();
+       BigDecimal a;
+       BigDecimal b;
        if(aa.equals("."))
          a = BigDecimal.ZERO;
        else 
@@ -36,15 +26,13 @@ public class Main2{
        else
          b = new BigDecimal(bb);
        a = a.add(b);
-       a = a.stripTrailingZeros();
-       System.out.print(a.toPlainString());
-       if(a.toPlainString().equals((a.toBigInteger()).toString()))
-         System.out.print(".0");
-       System.out.println();
+       String s = a.toPlainString();
+       int i,len = s.length();
+       for(i=len-1; s.charAt(i)=='0'; i--);
+       if(s.charAt(i)=='.')i++;
+       System.out.println(s.substring(0,i+1));
        } catch (Exception e){
-         //System.out.println("Case " + I);
        }
    }
-   //writer.close();
   }
 }
