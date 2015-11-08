@@ -40,7 +40,6 @@ void dfs(int n)
 int main()
 {
     int i,kas=0;
-
     do {
         scanf("%d %d",&E,&N);
         if(kas)printf("\n");
