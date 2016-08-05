@@ -21,6 +21,5 @@ int main(){
     printf("%llu %llu\n",stored_summation[search_index]-input_number,search_index);    
 
   }
-
   return 0;
 }
